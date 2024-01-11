@@ -4,9 +4,9 @@ use std::process;
 use mini_grep::{run, Config};
 
 fn main() {
-    let args: Vec<_> = env::args().collect();
+    // let args: Vec<_> = env::args().collect();
 
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         eprintln!("problem parsing arguments: {err}");
         process::exit(1)
     });
